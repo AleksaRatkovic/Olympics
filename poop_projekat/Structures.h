@@ -4,7 +4,13 @@
 #include<iostream>
 #include <regex>
 #include <vector>
+#include <array>
+#include"Person.h"
 #include"Competitor.h"
+#include"Athlete.h"
+#include"Team.h"
+
+
 
 using namespace std;
 
@@ -12,7 +18,9 @@ using namespace std;
 class Structures
 {
 	string pathAthlete, pathEvent;
-	vector<Competitor*> array;
+	vector<Person*> persons;
+	vector<Competitor*> competitors;
+	//svector<Competitor*> competitors;
 	// fields for athlete
 	int id;
 	string name;
@@ -36,6 +44,8 @@ public:
 
 	void parseAthletes();
 	void parseEvents();
+	vector<int> createTeam(string s);
+	//void createCompetitor();
 
 
 
