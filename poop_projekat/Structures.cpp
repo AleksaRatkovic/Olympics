@@ -4,7 +4,7 @@ void Structures::parseAthletes()
 {
 	ifstream file(pathAthlete);
 	if (!file.is_open()) {
-		cout << "File didnt open correctly";
+		cout << "File didn't open properly";
 	}
 
 	string line; //zovi stvari pravim imenom
@@ -34,7 +34,7 @@ void Structures::parseEvents()
 {
 	ifstream file(pathEvent);
 	if (!file.is_open()) {
-		cout << "Fajl nije otvoren kvalitetno";
+		cout << "File didn't open properly";
 	}
 
 	string line; 
