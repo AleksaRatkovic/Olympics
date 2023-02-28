@@ -5,12 +5,12 @@
 using namespace std;
 class Medal
 {
-	string medal;
+	string name;
 
 public:
-	Medal(string m): medal(m) {}
+	Medal(string m): name(m) {}
 	Medal() {}
 
-	string getMedal() const { return medal; }
+	string getMedal() const { return name; }
 };
 
