@@ -26,6 +26,7 @@ public:
 	Medal getMedal() const { return medal;  }
 	Country getCountry() const { return country;  }
 
+	//created this function for purpose of counting competitors
 	virtual vector<int> getAthletes() const = 0;
 
 
