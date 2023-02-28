@@ -8,7 +8,7 @@ void Structures::parseAthletes()
 	}
 
 	string line; //zovi stvari pravim imenom
-	regex pattern("([0-9])+!([^!]*)!([A-Z])!([^!]*)!([^!]*)!.*");
+	regex pattern("([^!]*)!([^!]*)!([A-Z])!([^!]*)!([^!]*)!.*");
 
 	while (getline(file, line)) {
 		smatch result;
@@ -71,6 +71,8 @@ void Structures::parseEvents()
 					athletes.push_back(at);
 				}
 				Team* t = new Team(ga, ev, me, co, false, athletes);
+				cout << endl << endl;
+				
 				competitors.push_back(t);
 			}
 
@@ -94,4 +96,22 @@ vector<int> Structures::createTeam(string s)
 		begin++;
 	}
 	return array;
+}
+
+int Structures::countCompetitors()
+{
+	map<pair<string, int>, int> map;
+	for_each(competitors.begin(), competitors.end(), [&map](const Competitor *c) {
+		if (c->getIndividual() == true) {
+			map[pair<string, int>(c->getGames().getName(), c->getAthletes()[0])]++;
+			}
+		else {
+			vector<int> ids = c->getAthletes();
+			for (int i : ids) {
+				map[pair<string, int>(c->getGames().getName(), i)]++;
+			}
+		}
+		});
+
+	return  map.size();
 }

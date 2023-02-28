@@ -5,6 +5,7 @@
 #include <regex>
 #include <vector>
 #include <array>
+#include <map>
 #include"Person.h"
 #include"Competitor.h"
 #include"Athlete.h"
@@ -45,7 +46,7 @@ public:
 	void parseAthletes();
 	void parseEvents();
 	vector<int> createTeam(string s);
-	//void createCompetitor();
+	int countCompetitors();
 
 
 
