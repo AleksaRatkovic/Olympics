@@ -13,14 +13,7 @@ public:
 		this->athletes = a;
 	}
 
-	string getAthletes() const {
-		string tmp;
-		for ( Athlete* a : athletes) {
-			tmp = tmp + a->getPerson().getName() + "\n";
-		}
-
-		return tmp;
-	}
+	virtual vector<int> getAthletes() const override;
 
 };
 

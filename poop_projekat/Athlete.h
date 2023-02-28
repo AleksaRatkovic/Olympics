@@ -13,6 +13,10 @@ public:
 
 	Person getPerson() const { return *person; }
 
+	virtual vector<int> getAthletes() const override;
+		
+	
+
 
 };
 
