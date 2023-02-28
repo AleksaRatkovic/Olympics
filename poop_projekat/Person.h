@@ -13,7 +13,7 @@ class Person
 	string weight;
 public:
 	Person() = default;
-	Person(int i, string n, int a, char s, string h, string w) {
+	Person(int i, string n, char s, int a, string h, string w) {
 		this->id = i;
 		this->name = n;
 		this->age = a;
