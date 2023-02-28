@@ -8,4 +8,5 @@ int main() {
 
 	s.parseAthletes();
 	s.parseEvents();
+	cout << s.countCompetitors();
 }
