@@ -102,6 +102,7 @@ int Structures::countCompetitors()
 {
 	map<pair<string, int>, int> map;
 	for_each(competitors.begin(), competitors.end(), [&map](const Competitor *c) {
+		//Competitors who participate in more than one discipline on same Olympics we need to count just once
 		if (c->getIndividual() == true) {
 			map[pair<string, int>(c->getGames().getName(), c->getAthletes()[0])]++;
 			}
