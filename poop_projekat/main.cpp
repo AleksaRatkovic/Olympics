@@ -4,9 +4,13 @@
 
 
 int main() {
-	Structures s("athletes.txt", "events.txt");
+	Structures& s = Structures::getInstance("athletes.txt", "events.txt");
 
 	s.parseAthletes();
 	s.parseEvents();
 	cout << s.countCompetitors();
+
+	cout << endl << "\t" << s.averageHeight() << endl;
+
+	cout << " \t" << s.averageWeight();
 }
