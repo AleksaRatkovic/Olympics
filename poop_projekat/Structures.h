@@ -6,6 +6,7 @@
 #include <vector>
 #include <array>
 #include <map>
+#include <set>
 #include <algorithm>
 #include"Person.h"
 #include"Competitor.h"
@@ -54,6 +55,7 @@ public:
 	void parseEvents();
 	vector<int> createTeam(string s);
 	int countCompetitors();
+	int countDisciplines();
 	double averageHeight();
 	double averageWeight();
 

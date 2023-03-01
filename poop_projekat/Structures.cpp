@@ -119,6 +119,16 @@ int Structures::countCompetitors()
 	//this works, but we can do it with map<string, set<int>> which can be more optimal in second bullet of task
 }
 
+int Structures::countDisciplines()
+{
+	//it is differnt from competitor because we don't count same discipline twice on two different Olympics.. It is still same discipline...
+	set<string> disciplines;
+	for_each(competitors.begin(), competitors.end(), [&disciplines](const Competitor* c) {
+		disciplines.insert(c->getEvent().getSport().getDiscipline());
+		});
+	return disciplines.size();
+}
+
 double Structures::averageHeight()
 {
 	float avg = 0;
