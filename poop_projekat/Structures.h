@@ -6,6 +6,7 @@
 #include <vector>
 #include <array>
 #include <map>
+#include <algorithm>
 #include"Person.h"
 #include"Competitor.h"
 #include"Athlete.h"
@@ -40,13 +41,21 @@ class Structures
 	string competitorID;
 	string medal;
 
+	Structures(string a, string e): pathAthlete(a), pathEvent(e) {}
+
 public:
-	Structures(string a, string e) : pathAthlete(a), pathEvent(e) {}
+	//Structures(string a, string e) : pathAthlete(a), pathEvent(e) {}
+	static Structures& getInstance(string a, string e) {
+		static Structures instance(a, e);
+		return instance;
+	}
 
 	void parseAthletes();
 	void parseEvents();
 	vector<int> createTeam(string s);
 	int countCompetitors();
+	double averageHeight();
+	double averageWeight();
 
 
 

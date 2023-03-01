@@ -8,7 +8,7 @@ void Structures::parseAthletes()
 	}
 
 	string line; //zovi stvari pravim imenom
-	regex pattern("([^!]*)!([^!]*)!([A-Z])!([^!]*)!([^!]*)!.*");
+	regex pattern("([^!]*)!([^!]*)!(M|F)!(\\d+)!(\\d+|NA)!(\\d+|NA)");
 
 	while (getline(file, line)) {
 		smatch result;
@@ -113,6 +113,42 @@ int Structures::countCompetitors()
 			}
 		}
 		});
-
+	
 	return  map.size();
+
+	//this works, but we can do it with map<string, set<int>> which can be more optimal in second bullet of task
 }
+
+double Structures::averageHeight()
+{
+	float avg = 0;
+	float sum = 0;
+	//int count = count_if(persons.begin(), persons.end(), [](const Person* p)->bool {return p->getHeight() != "NA"; });
+	int count = 0;
+	for_each(persons.begin(), persons.end(), [&sum,&count](const Person* p) {
+		if (p->getHeight() != "NA") {
+			sum += stoi(p->getHeight());
+			count++;
+		}
+		});
+	avg = sum / count;
+	return avg;
+}
+
+double Structures::averageWeight()
+{
+	float avg = 0;
+	float sum = 0;
+	//int count = count_if(persons.begin(), persons.end(), [](const Person* p)->bool {return p->getHeight() != "NA"; });
+	int count = 0;
+	for_each(persons.begin(), persons.end(), [&sum, &count](const Person* p) {
+		if (p->getWeight() != "NA") {
+			sum += stof(p->getWeight());
+			count++;
+		}
+		});
+	avg = sum / count;
+	return avg;
+}
+
+
